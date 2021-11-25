@@ -19,30 +19,23 @@ set -e
 set -u
 set -o pipefail
 
-echo deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-4.0 main\
+echo deb http://apt.llvm.org/focal/ llvm-toolchain-focal main\
      >> /etc/apt/sources.list.d/llvm.list
-echo deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial-4.0 main\
-     >> /etc/apt/sources.list.d/llvm.list
-
-echo deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-7 main\
-     >> /etc/apt/sources.list.d/llvm.list
-echo deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial-7 main\
+echo deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal main\
      >> /etc/apt/sources.list.d/llvm.list
 
-echo deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-8 main\
+echo deb http://apt.llvm.org/focal/ llvm-toolchain-focal-12 main\
      >> /etc/apt/sources.list.d/llvm.list
-echo deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial-8 main\
-     >> /etc/apt/sources.list.d/llvm.list
-
-echo deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-9 main\
-     >> /etc/apt/sources.list.d/llvm.list
-echo deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial-9 main\
+echo deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-12 main\
      >> /etc/apt/sources.list.d/llvm.list
 
-echo deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial main\
+echo deb http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main\
      >> /etc/apt/sources.list.d/llvm.list
-echo deb-src http://apt.llvm.org/xenial/ llvm-toolchain-xenial main\
+echo deb-src http://apt.llvm.org/focal/ llvm-toolchain-focal-13 main\
      >> /etc/apt/sources.list.d/llvm.list
 
-wget -q -O - http://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
-apt-get update && apt-get install -y llvm-4.0 llvm-9 llvm-8 llvm-7 clang-9 libclang-9-dev clang-8 libclang-8-dev clang-7 libclang-7-dev
+wget -q -O - https://apt.llvm.org/llvm-snapshot.gpg.key|sudo apt-key add -
+
+apt-get update && apt-get install -y \
+     llvm-13 \
+     clang-13 libclang-13-dev
