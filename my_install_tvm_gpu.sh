@@ -19,13 +19,13 @@ set -e
 set -u
 set -o pipefail
 
-cd /ssdexport/usr
+cd /my_root/usr
 git clone https://github.com/apache/tvm tvm --recursive
-cd /ssdexport/usr/tvm
+cd /my_root/usr/tvm
 # checkout a hash-tag
 #git checkout 4b13bf668edc7099b38d463e5db94ebc96c80470
 
-echo set\(USE_LLVM llvm-config-8\) >> config.cmake
+echo set\(USE_LLVM llvm-config-13\) >> config.cmake
 echo set\(USE_CUDA ON\) >> config.cmake
 echo set\(USE_CUDNN ON\) >> config.cmake
 echo set\(USE_BLAS openblas\) >> config.cmake
